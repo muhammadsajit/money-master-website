@@ -52,27 +52,28 @@
                                       <div class="form-group d-flex">
                                          <label for="income">Income:</label>
                                         
-                                        <input type="text"class="form-control mb-4 w-75 mx-1" name="income">
+                                        <input id="income-input" type="text"class="form-control mb-4 w-75 mx-1" name="income">
                                       </div>
                                       
                                        <h3 class="text-center mt-3 fs-4 text-dark fw-bold">Expenses</h3>
                                       <div class="form-group d-flex">
                                         <label for="food">Food:</label>
-                                        <input type="text"class="form-control mb-4 w-75 mx-1" name="food">
+                                        <input id="food-input" type="text"class="form-control mb-4 w-75 mx-1" name="food">
                                       </div>
                                       <div class="form-group d-flex">
                                         <label for="rent">Rent: </label>
-                                      <input type="text"class="form-control mb-4 w-75 mx-1" name="rent">
+                                      <input id="rent-input" type="text"class="form-control mb-4 w-75 mx-1" name="rent">
                                       </div>
                                       <div class="form-group d-flex ">
                                         <label for="clothes">Clothes:</label>
-                                        <input type="text"class="form-control mb-4 w-75 mx-1" name="clothes">
+                                        <input id="cloth-input" type="text"class="form-control mb-4 w-75 mx-1" name="clothes">
                                       </div>
                                      <div class="text-center">
-                                      <button type="button" class="btn btn-primary text-white">Calculate</button>
+                                      <button id="calculate-button" type="button" class="btn btn-primary text-white">Calculate</button>
                                      </div>
-                                     <h3 class="text-center mt-3 fs-4 text-dark fw-bold">Total Expenses:</h3>
-                                     <h3 class="text-center mt-3 fs-4 text-dark fw-bold">Balance:</h3>
+                                     <h3  class="text-center mt-3 fs-4 text-dark fw-bold">Total Expenses:$<span id="total-expense" >00</span></h3>
+           
+                                     <h3 class="text-center mt-3 fs-4 text-dark fw-bold">Balance: $ <span id="balance">00</span> </h3>
                                      <div class="form-group d-flex mx-2 ">
                                       <label for="save">Save:</label>
                                       <input type="text"class="form-control mb-4 w-25 mx-1" name="save">

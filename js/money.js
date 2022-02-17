@@ -6,6 +6,7 @@ document.getElementById('calculate-button').addEventListener('click',function(){
      const incomeField=document.getElementById('income-input');
      const newIncomeValueText=incomeField.value;
      const newIncomeValue=parseFloat(newIncomeValueText);
+     
 
 
 
@@ -21,6 +22,13 @@ document.getElementById('calculate-button').addEventListener('click',function(){
      const clothesField=document.getElementById('cloth-input');
     const newClothesValueText=clothesField.value;
       const newClothesValue=parseFloat(newClothesValueText);
+      if( typeof incomeField !='number'||typeof foodField !='number'||typeof foodField !='number'||typeof clothesField !='number'){
+      
+         alert('this is not a number');
+      }
+    
+
+      
 
    
      //total expense calculate
@@ -29,6 +37,9 @@ document.getElementById('calculate-button').addEventListener('click',function(){
       const previousExpense=parseFloat(previousExpenseText);
      const newExpense=previousExpense+newFoodValue+newRentValue+newClothesValue;
     totalExpense.innerText=newExpense;
+    if(newExpense>newIncomeValue){
+       alert('error');
+    }
        //balance calculate
        const balance=document.getElementById('balance');
             // const previousBalanceText= balance.innerText;
@@ -51,43 +62,59 @@ document.getElementById('calculate-button').addEventListener('click',function(){
 });
 //handle save event handler
 document.getElementById('save-button').addEventListener('click',function(){
-    //get income field
-    const incomeField=document.getElementById('income-input');
+     //get income field
+     const incomeField=document.getElementById('income-input');
     const newIncomeValueText=incomeField.value;
-    const newIncomeValue=parseFloat(newIncomeValueText);
+     const newIncomeValue=parseFloat(newIncomeValueText);
     
     //get save field
     const saveField=document.getElementById('save-input');
        
-     const newSaveValueText=saveField.value;
+      const newSaveValueText=saveField.value;
      const newSaveValue=parseFloat(newSaveValueText);
     
-     //calculate savings
-      const savings=document.getElementById('savings');
-    //  const previousSavingsText= savings.innerText;
-    //   const previousSavings=parseFloat(previousSavingsText);
-      const savingsPercentage= newSaveValue/parseFloat(100);
-     const newSavings=newIncomeValue*savingsPercentage;
-    savings.innerText= newSavings;
+    //  //calculate savings
+       const savings=document.getElementById('savings');
+      const previousSavingsText= savings.innerText;
+    
+      
+     const newSavings=(newIncomeValue/100)*newSaveValue;
+     savings.innerText= newSavings;
+     
+     
+     //total expense calculate
+     const totalExpense=document.getElementById('total-expense');
+     const previousExpenseText= totalExpense.innerText;
+     const previousExpense=parseFloat(previousExpenseText);
+    const newExpense=previousExpense+newFoodValue+newRentValue+newClothesValue;
+   totalExpense.innerText=newExpense;
 
-    // // //  //get balance
-    const balance=document.getElementById('balance');
-             const previousBalanceText= balance.innerText;
-          const previousBalance=parseFloat(previousBalanceText);
-            const newBalance=newIncomeValue-newExpense;
+      //get balance
+     const balance=document.getElementById('balance');
+              const previousBalanceText= balance.innerText;
+           const previousBalance=parseFloat(previousBalanceText);
+          const newBalance=newIncomeValue-newExpense;
           balance.innerText=newBalance;
     
           
     //remaining balance calculate
 
     const remainingBalance=document.getElementById('remain-balance');
-    const remainingBalanceText=remainingBalance.innerText;
-    const previousRemainingBalance=parseFloat(remainingBalanceText);
+     const remainingBalanceText=remainingBalance.innerText;
+     
+
+     const previousRemainingBalance=parseFloat(remainingBalanceText);
+    
+
    
       
-     const newRemainingBalance=  previousBalance-newSavings;
+            
+     const newRemainingBalance=newBalance -newSavings;
+     remainingBalance.innerText=newRemainingBalance;
+            
+           
     
-     remainingBalance.innerText= newRemainingBalance ;
+    //  remainingBalance.innerText= newRemainingBalance ;
     //clear save Field
     saveField.value='';
 

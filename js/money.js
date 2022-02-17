@@ -61,14 +61,33 @@ document.getElementById('save-button').addEventListener('click',function(){
        
      const newSaveValueText=saveField.value;
      const newSaveValue=parseFloat(newSaveValueText);
+    
      //calculate savings
       const savings=document.getElementById('savings');
-    //   const previousSavingsText= savings.innerText;
+    //  const previousSavingsText= savings.innerText;
     //   const previousSavings=parseFloat(previousSavingsText);
       const savingsPercentage= newSaveValue/parseFloat(100);
      const newSavings=newIncomeValue*savingsPercentage;
     savings.innerText= newSavings;
 
+    // // //  //get balance
+    const balance=document.getElementById('balance');
+             const previousBalanceText= balance.innerText;
+          const previousBalance=parseFloat(previousBalanceText);
+            const newBalance=newIncomeValue-newExpense;
+          balance.innerText=newBalance;
+    
+          
+    //remaining balance calculate
+
+    const remainingBalance=document.getElementById('remain-balance');
+    const remainingBalanceText=remainingBalance.innerText;
+    const previousRemainingBalance=parseFloat(remainingBalanceText);
+   
+      
+     const newRemainingBalance=  previousBalance-newSavings;
+    
+     remainingBalance.innerText= newRemainingBalance ;
     //clear save Field
     saveField.value='';
 
